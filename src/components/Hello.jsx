@@ -1,5 +1,5 @@
-import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { string, bool, shape } from 'prop-types';
 
 function Hello(props) {
