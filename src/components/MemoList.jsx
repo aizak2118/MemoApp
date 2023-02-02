@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import Icon from './Icon';
 
-export default function MemoList(props) {
+export default function MemoList() {
   const navigation = useNavigation();
   return (
     <View>
@@ -20,7 +20,7 @@ export default function MemoList(props) {
         </View>
         <TouchableOpacity
           style={styles.memoDelete}
-          onPress={() => { Alert.alert('Are you sure?') }}
+          onPress={() => { Alert.alert('Are you sure?'); }}
         >
           <Icon name="delete" size={24} color="#B0B0B0" />
         </TouchableOpacity>
@@ -35,7 +35,7 @@ export default function MemoList(props) {
         </View>
         <TouchableOpacity
           style={styles.memoDelete}
-          onPress={() => { Alert.alert('Are you sure?') }}
+          onPress={() => { Alert.alert('Are you sure?'); }}
         >
           <Icon name="delete" size={24} color="#B0B0B0" />
         </TouchableOpacity>
@@ -50,14 +50,11 @@ export default function MemoList(props) {
         </View>
         <TouchableOpacity
           style={styles.memoDelete}
-          onPress={() => { Alert.alert('Are you sure?') }}
+          onPress={() => { Alert.alert('Are you sure?'); }}
         >
           <Icon name="delete" size={24} color="#B0B0B0" />
         </TouchableOpacity>
       </TouchableOpacity>
-
-
-
     </View>
   );
 }
