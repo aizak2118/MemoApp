@@ -1,8 +1,5 @@
-/* eslint-disable-next-line */
 import { NavigationContainer } from '@react-navigation/native';
-/* eslint-disable-next-line */
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
-/* eslint-disable-next-line */
 import firebase from 'firebase';
 
 import MemoListScreen from './src/screens/MemoListScreen';
@@ -14,11 +11,13 @@ import SignUpScreen from './src/screens/SignUpScreen';
 
 import { firebaseConfig } from './env';
 
-const Stack = createStackNavigator();
+require('firebase/firestore');
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
