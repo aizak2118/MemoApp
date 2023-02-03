@@ -15,16 +15,13 @@ export default function SignUpScreen(props) {
 
   function handlePress() {
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const { user } = userCredential;
-        console.log(user.uid);
+      .then(() => {
         navigation.reset({
           index: 0,
           routes: [{ name: 'MemoList' }],
         });
       })
       .catch((error) => {
-        console.log(error.code, error.message);
         const errorMsg = translateErrors(error.code);
         Alert.alert(errorMsg.title, errorMsg.description);
       });
@@ -53,6 +50,7 @@ export default function SignUpScreen(props) {
         />
         <Button
           label="Submit"
+          // eslint-disable-next-line react/jsx-no-bind
           onPress={handlePress}
         />
         <View style={styles.footer}>

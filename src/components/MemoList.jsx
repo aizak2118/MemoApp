@@ -1,7 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
+// import { NavigationContainer } from '@react-navigation/native';
 import {
   StyleSheet, Text, View, TouchableOpacity, Alert, FlatList,
 } from 'react-native';
+// eslint-disable-next-line import/no-duplicates
 import { useNavigation } from '@react-navigation/native';
 import {
   shape, string, instanceOf, arrayOf,
@@ -60,6 +61,7 @@ export default function MemoList(props) {
     <View style={styles.container}>
       <FlatList
         data={memos}
+        // eslint-disable-next-line react/jsx-no-bind
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />

@@ -15,6 +15,7 @@ export default function CircleButton(props) {
 CircleButton.propTypes = {
   style: shape(),
   name: string.isRequired,
+  // eslint-disable-next-line react/require-default-props
   onPress: func,
 };
 

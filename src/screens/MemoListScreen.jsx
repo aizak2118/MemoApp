@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, View, Alert, Text } from 'react-native';
+import {
+  StyleSheet, View, Alert, Text,
+} from 'react-native';
 import firebase from 'firebase';
 
 import MemoList from '../components/MemoList';
 import CircleButton from '../components/CircleButton';
 import LogOutButton from '../components/LogOutButton';
 import Button from '../components/Button';
-import Loading from '../components/Loading';
+// import Loading from '../components/Loading';
 
 export default function MemoListScreen(props) {
   const { navigation } = props;
   const [memos, setMemos] = useState([]);
-  const [isLoading, setLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [Loading, setLoading] = useState(false);
   useEffect(() => {
     navigation.setOptions({
+      // eslint-disable-next-line react/no-unstable-nested-components
       headerRight: () => <LogOutButton />,
     });
   }, []);
@@ -28,7 +32,6 @@ export default function MemoListScreen(props) {
       unsubscribe = ref.onSnapshot((snapshot) => {
         const userMemos = [];
         snapshot.forEach((doc) => {
-          console.log(doc.id, doc.data());
           const data = doc.data();
           userMemos.push({
             id: doc.id,
@@ -38,10 +41,9 @@ export default function MemoListScreen(props) {
         });
         setMemos(userMemos);
         setLoading(false);
-      }, (error) => {
-        console.log(error);
+      }, () => {
         setLoading(false);
-        Alert.alert('データの読み込みに失敗しまいた。');
+        Alert.alert('データの読み込みに失敗しました。');
       });
     }
     return unsubscribe;
@@ -50,7 +52,6 @@ export default function MemoListScreen(props) {
   if (memos.length === 0) {
     return (
       <View style={emptyStyles.container}>
-        <Loading isLoading={isLoading} />
         <View style={emptyStyles.inner}>
           <Text style={emptyStyles.title}>最初のメモを作成してみよう！</Text>
           <Button
